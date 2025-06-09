@@ -89,8 +89,8 @@ The goal is not only to achieve high accuracy but also to **explain model predic
 
 ##  Results (Example)
 
-- CNN Accuracy: ~85%+
-- XGBoost F1-score: ~80%+
+- CNN Accuracy: ~75%+
+- XGBoost F1-score: ~72%+
 - SHAP summary plots reveal top 5 features impacting diagnosis
 - LIME heatmaps show interpretable image regions
 
@@ -102,8 +102,6 @@ The goal is not only to achieve high accuracy but also to **explain model predic
  skin-disease-xai/
 ├── skin-disease-classification_with_explanation.ipynb
 ├── README.md
-
-
 ```
 
 ---
