@@ -1,31 +1,114 @@
-# Skin Disease Classification with Explainability
+# Explainable AI for Skin Disease Classification
 
-## Introduction
+This project presents an **Explainable AI (XAI)** framework for classifying various types of skin diseases using **deep learning** and **machine learning** models. We combine performance with transparency by integrating interpretability tools like **LIME**, **SHAP**, and **Partial Dependence Plots (PDP)**.
 
-Early and accurate detection of skin diseases, particularly skin cancer, is crucial for effective treatment. This project leverages deep learning and machine learning techniques to classify various types of skin diseases, with a strong emphasis on explainability and model interpretability.
+##  Overview
 
-We employ a Convolutional Neural Network (CNN) to predict skin cancer types directly from dermoscopic images. The CNN model automates the feature extraction process, improving accuracy while minimizing the need for manual intervention. To make the model's decisions transparent, we integrate LIME (Local Interpretable Model-Agnostic Explanations), providing visual and localized explanations of the CNN's predictions—an essential step in medical AI applications where trust and interpretability are critical.
+Skin cancer detection from dermoscopic images is a critical challenge in medical diagnostics. This notebook uses:
 
-In parallel, we use structured clinical data (CSV) with a Gradient Boosting (XGBoost) model to perform skin disease classification. To understand how individual features influence the model’s decisions, we incorporate Partial Dependence Plots (PDPs) and SHAP (SHapley Additive exPlanations) values, offering both global and local interpretability.
+- **CNN** to classify dermoscopic images
+- **XGBoost** on structured clinical metadata
+- **LIME**, **SHAP**, and **PDP** for interpretability
 
-Ultimately, this project aims not only to achieve high predictive performance but also to provide transparent, explainable insights into how and why predictions are made—ensuring the model can be understood and trusted by medical professionals.
+The goal is not only to achieve high accuracy but also to **explain model predictions**—building trust with medical professionals and aiding in decision-making.
+
 
 > **Note**: This notebook was run in a Kaggle environment.
 
-## About the Dataset
+---
 
-The **HAM10000** ("Human Against Machine with 10,000 training images") dataset is a large collection of 10,015 dermatoscopic images representing seven common types of pigmented skin lesions. 
+##  Dataset: HAM10000
 
-Labels are confirmed via histopathology, follow-up, expert consensus, or confocal microscopy. In addition to images, the dataset includes CSV files containing clinical metadata—such as patient demographics, lesion location, and diagnostic remarks—which can be used for structured-data modeling.
+> "Human Against Machine with 10,000 training images"
 
-### Skin Cancer Classes
+**Data source**: [Kaggle – HAM10000 dataset](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000)
 
-The dataset includes the following 7 skin disease types:
+- 10,015 dermoscopic images
+- 7 skin disease categories:
+  - Melanocytic nevi
+  - Melanoma
+  - Benign keratosis-like lesions
+  - Basal cell carcinoma
+  - Actinic keratoses
+  - Vascular lesions
+  - Dermatofibroma
+- Includes both image data and clinical metadata (CSV)
 
-- Melanocytic nevi  
-- Melanoma  
-- Benign keratosis-like lesions  
-- Basal cell carcinoma  
-- Actinic keratoses  
-- Vascular lesions  
-- Dermatofibroma  
+---
+
+##  Models Used
+
+### 1. Convolutional Neural Network (CNN)
+- Input: Dermoscopic images
+- Output: Disease class
+- Framework: TensorFlow / Keras
+- Highlights:
+  - Automated feature extraction
+  - Image preprocessing and augmentation
+
+### 2. Gradient Boosting (XGBoost)
+- Input: Structured metadata
+- Output: Disease class
+- Explainability: SHAP and PDP plots
+
+---
+
+##  Explainability Techniques
+
+###  LIME (Local Interpretable Model-Agnostic Explanations)
+- Applied to CNN predictions
+- Highlights influential regions in an image
+
+###  SHAP (SHapley Additive exPlanations)
+- Applied to XGBoost model
+- Shows feature importance and individual contributions
+
+###  PDP (Partial Dependence Plots)
+- Visualizes marginal effects of features on prediction
+
+---
+
+##  How to Run
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/skin-disease-xai.git
+   cd skin-disease-xai
+   ```
+
+2. **Download the dataset**
+   - From [Kaggle HAM10000](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000)
+   - Place images and CSV in the expected directory paths
+
+3. **Run the notebook**
+   ```bash
+   jupyter notebook skin-disease-classification_with_explanation.ipynb
+   ```
+
+---
+
+##  Results (Example)
+
+- CNN Accuracy: ~85%+
+- XGBoost F1-score: ~80%+
+- SHAP summary plots reveal top 5 features impacting diagnosis
+- LIME heatmaps show interpretable image regions
+
+---
+
+##  Project Structure
+
+```
+ skin-disease-xai/
+├── skin-disease-classification_with_explanation.ipynb
+├── README.md
+
+
+```
+
+---
+
+
+## 📜 License
+
+This project is licensed under the MIT License.
