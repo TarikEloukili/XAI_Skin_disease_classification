@@ -109,6 +109,6 @@ The goal is not only to achieve high accuracy but also to **explain model predic
 ---
 
 
-## 📜 License
+##  License
 
 This project is licensed under the MIT License.
